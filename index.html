@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Weather — Current & Forecast</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+</head>
+<body>
+  <button
+    class="theme-toggle"
+    id="themeToggle"
+    type="button"
+    aria-label="Toggle light/night mode"
+    title="Toggle theme"
+  >
+    <span class="theme-icon" aria-hidden="true"></span>
+  </button>
+
+  <div class="top-bar">
+    <form class="search-form" id="searchForm" autocomplete="off">
+      <span class="search-icon" aria-hidden="true">🔍</span>
+      <input
+        class="search-input"
+        id="searchInput"
+        type="text"
+        name="q"
+        placeholder="Search city…"
+        aria-label="City name"
+        required
+      />
+    </form>
+
+    <div class="top-bar-actions">
+      <button
+        class="icon-btn"
+        id="geoBtn"
+        type="button"
+        aria-label="Use my location"
+        title="Use my location"
+      >📍</button>
+
+      <div class="unit-toggle" role="group" aria-label="Temperature unit">
+        <button
+          class="unit-btn active"
+          id="unitC"
+          type="button"
+          data-unit="metric"
+          aria-pressed="true"
+        >°C</button>
+        <button
+          class="unit-btn"
+          id="unitF"
+          type="button"
+          data-unit="imperial"
+          aria-pressed="false"
+        >°F</button>
+      </div>
+    </div>
+  </div>
+
+  <main class="container">
+    <header class="header">
+      <h1 class="title">Weather</h1>
+    </header>
+
+    <section class="status" id="status" role="status" aria-live="polite"></section>
+
+    <section class="current-section" id="currentSection" hidden>
+      <div class="current-card">
+        <div class="current-top">
+          <div class="current-temp-wrap">
+            <span class="temp" id="temp">—</span>
+            <span class="temp-unit" id="tempUnit">°C</span>
+          </div>
+          <div class="weather-icon" id="weatherIcon" aria-hidden="true">⛅</div>
+        </div>
+        <div class="current-meta">
+          <h2 class="city-name" id="cityName">—</h2>
+          <p class="weather-desc" id="weatherDesc">—</p>
+        </div>
+        <div class="details">
+          <div class="detail">
+            <div class="detail-label">Feels like</div>
+            <div class="detail-value" id="feelsLike">—</div>
+          </div>
+          <div class="detail">
+            <div class="detail-label">Humidity</div>
+            <div class="detail-value" id="humidity">—</div>
+          </div>
+          <div class="detail">
+            <div class="detail-label">Wind</div>
+            <div class="detail-value" id="wind">—</div>
+          </div>
+          <div class="detail">
+            <div class="detail-label">Pressure</div>
+            <div class="detail-value" id="pressure">—</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="forecast-section" id="forecastSection" hidden>
+      <h3 class="forecast-title">5-day forecast</h3>
+      <div class="forecast-grid" id="forecastGrid"></div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
